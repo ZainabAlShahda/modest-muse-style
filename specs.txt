@@ -1,0 +1,4 @@
+## reference
+ "https://www.gulahmedshop.com/?srsltid=AfmBOopIaBuJjayqne3L56oO4MeqyY64ss5_4VPi41EOYTBTg_nneo8C"
+ - inspect this website and make a .md file including all key features and functionalities of this web site. 
+ - then use that .md file to modify my project accordingly

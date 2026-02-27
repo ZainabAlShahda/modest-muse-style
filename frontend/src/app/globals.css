@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary:    #2D5A1B;
+    --color-secondary:  #4A8A36;
+    --color-accent:     #C49A3A;
+    --color-background: #FAF8F2;
+    --color-text:       #1C261A;
+  }
+
+  html  { @apply scroll-smooth; }
+  body  { @apply bg-cream text-charcoal font-sans antialiased; }
+
+  h1, h2, h3, h4, h5, h6 { @apply font-serif; }
+
+  * { @apply border-sand-100; }
+
+  ::selection { @apply bg-sand-100 text-charcoal; }
+}
+
+@layer components {
+  /* ── Primary CTA: forest green ── */
+  .btn-primary {
+    @apply bg-sand text-white px-6 py-3 rounded-xl font-medium text-sm tracking-wide
+           transition-all duration-300 hover:bg-sand-500 hover:shadow-card-hover
+           active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sand-300;
+  }
+
+  /* ── Secondary: outlined charcoal ── */
+  .btn-secondary {
+    @apply bg-transparent text-charcoal border border-charcoal px-6 py-3 rounded-xl
+           font-medium text-sm tracking-wide transition-all duration-300
+           hover:bg-charcoal hover:text-cream active:scale-95
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-charcoal;
+  }
+
+  /* ── Ghost: subtle green text ── */
+  .btn-ghost {
+    @apply bg-transparent text-sand px-4 py-2 rounded-xl font-medium text-sm
+           transition-all duration-300 hover:bg-sand-50 active:scale-95;
+  }
+
+  /* ── Cards ── */
+  .card {
+    @apply bg-white rounded-xl shadow-card transition-all duration-300 hover:shadow-card-hover;
+  }
+
+  /* ── Form inputs ── */
+  .input-field {
+    @apply w-full border border-sand-100 rounded-xl px-4 py-3 text-sm text-charcoal
+           bg-white placeholder-charcoal-muted
+           focus:outline-none focus:ring-2 focus:ring-sand-300 focus:border-transparent
+           transition-all duration-200;
+  }
+
+  /* ── Section headings ── */
+  .section-title { @apply font-serif text-display-md text-charcoal; }
+
+  /* ── Layout wrapper ── */
+  .container-wide { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
+
+  /* ── Accent tag / pill ── */
+  .tag-accent {
+    @apply inline-block text-xs font-medium tracking-widest uppercase
+           text-sand border border-sand-200 px-4 py-1.5 rounded-full bg-sand-50;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .aspect-product { aspect-ratio: 3 / 4; }
+}
