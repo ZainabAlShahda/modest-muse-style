@@ -3,6 +3,7 @@ import Footer from '@/components/layout/Footer';
 import CartDrawer from '@/components/cart/CartDrawer';
 import AnnouncementBar from '@/components/layout/AnnouncementBar';
 import BackToTop from '@/components/layout/BackToTop';
+import ChatWidget from '@/components/chat/ChatWidget';
 
 export default function StoreLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -13,6 +14,7 @@ export default function StoreLayout({ children }: { children: React.ReactNode })
       <Footer />
       <CartDrawer />
       <BackToTop />
+      <ChatWidget />
     </>
   );
 }

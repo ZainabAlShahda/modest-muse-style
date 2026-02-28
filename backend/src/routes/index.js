@@ -10,5 +10,6 @@ router.use('/blog', require('./blog.routes'));
 router.use('/upload', require('./upload.routes'));
 router.use('/payment', require('./payment.routes'));
 router.use('/reviews', require('./review.routes'));
+router.use('/chat', require('./chat.routes'));
 
 module.exports = router;
