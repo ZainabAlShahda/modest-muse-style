@@ -9,8 +9,8 @@ export default function Footer() {
       {/* Top strip */}
       <div className="bg-sand">
         <div className="container-wide py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-cream/90">
-          <p className="font-medium tracking-wide">🌿 Free shipping on orders over $75</p>
-          <p className="text-cream/70 text-xs">Modest fashion, delivered worldwide.</p>
+          <p className="font-medium tracking-wide">🌿 Free shipping on orders over Rs. 5,000</p>
+          <p className="text-cream/70 text-xs">Modest Fashion, Delivered at Doorstep.</p>
         </div>
       </div>
 
