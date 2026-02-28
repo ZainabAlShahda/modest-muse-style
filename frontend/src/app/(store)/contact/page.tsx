@@ -22,7 +22,7 @@ export default function ContactPage() {
           <div className="mt-10 space-y-6">
             {[
               { icon: Mail, label: 'Email', value: 'hello@modestmusestyle.com' },
-              { icon: MapPin, label: 'Location', value: 'Ships Worldwide' },
+              { icon: MapPin, label: 'Location', value: 'Ships within Pakistan only' },
               { icon: Clock, label: 'Response Time', value: 'Within 24 hours (Mon–Fri)' },
             ].map(({ icon: Icon, label, value }) => (
               <div key={label} className="flex items-center gap-4">
