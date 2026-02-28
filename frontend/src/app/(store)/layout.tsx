@@ -8,8 +8,10 @@ import ChatWidget from '@/components/chat/ChatWidget';
 export default function StoreLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <AnnouncementBar />
-      <Header />
+      <div className="sticky top-0 z-50">
+        <AnnouncementBar />
+        <Header />
+      </div>
       <main className="min-h-screen">{children}</main>
       <Footer />
       <CartDrawer />
