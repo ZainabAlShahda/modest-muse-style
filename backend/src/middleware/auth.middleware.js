@@ -41,4 +41,25 @@ const restrictTo = (...roles) => {
   };
 };
 
-module.exports = { protect, restrictTo };
+// Attaches req.user if a valid token is present, but never blocks the request.
+// Use on routes that support both authenticated and guest access.
+const optionalProtect = async (req, res, next) => {
+  try {
+    let token;
+    if (req.headers.authorization?.startsWith('Bearer ')) {
+      token = req.headers.authorization.split(' ')[1];
+    }
+    if (!token) return next();
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const user = await User.findById(decoded.id).select('+passwordChangedAt');
+    if (user && !user.changedPasswordAfter(decoded.iat)) {
+      req.user = user;
+    }
+  } catch {
+    // invalid/expired token — treat as guest
+  }
+  next();
+};
+
+module.exports = { protect, optionalProtect, restrictTo };

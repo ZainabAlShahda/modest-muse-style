@@ -100,7 +100,7 @@ export default function PaymentForm({ onComplete, onBack }: PaymentFormProps) {
 
         const { data } = await axiosInstance.post('/payment/create-intent', {
           amount: total,
-          currency: 'pkr',
+          currency: 'usd',
         });
         const { clientSecret } = data.data;
 
