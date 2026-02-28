@@ -53,6 +53,9 @@ const METHODS: { id: PaymentMethod; label: string; sub: string; icon: React.Reac
   },
 ];
 
+// Approximate PKR → USD rate for Stripe (update periodically)
+const PKR_TO_USD = 280;
+
 const CARD_ELEMENT_OPTIONS = {
   style: {
     base: {
@@ -99,7 +102,7 @@ export default function PaymentForm({ onComplete, onBack }: PaymentFormProps) {
         if (!stripe || !elements) return;
 
         const { data } = await axiosInstance.post('/payment/create-intent', {
-          amount: total,
+          amount: parseFloat((total / PKR_TO_USD).toFixed(2)),
           currency: 'usd',
         });
         const { clientSecret } = data.data;
@@ -225,7 +228,12 @@ export default function PaymentForm({ onComplete, onBack }: PaymentFormProps) {
         <div className="space-y-3">
           <div className="flex items-center gap-2 text-sm text-charcoal-muted bg-sage-50 border border-sage-100 px-4 py-3 rounded-xl">
             <Lock size={14} className="text-sage shrink-0" />
-            <span>Your card details are encrypted and processed securely via Stripe.</span>
+            <span>
+              Your card details are encrypted and processed securely via Stripe.{' '}
+              <span className="font-medium text-charcoal">
+                Card is charged in USD (~${(total / PKR_TO_USD).toFixed(2)})
+              </span>
+            </span>
           </div>
           <div>
             <label className="text-sm font-medium text-charcoal mb-2 block">Card Details</label>
