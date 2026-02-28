@@ -1,4 +1,5 @@
 services:
+  # ── Backend API ──────────────────────────────────────────────────────────────
   - type: web
     name: modest-muse-api
     runtime: node
@@ -17,7 +18,7 @@ services:
       - key: JWT_EXPIRE
         value: 7d
       - key: FRONTEND_URL
-        sync: false
+        sync: false          # set to https://modest-muse-style.onrender.com after deploy
       - key: CLOUDINARY_CLOUD_NAME
         sync: false
       - key: CLOUDINARY_API_KEY
@@ -28,3 +29,28 @@ services:
         sync: false
       - key: STRIPE_WEBHOOK_SECRET
         sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: EMAIL_HOST
+        sync: false
+      - key: EMAIL_PORT
+        sync: false
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASS
+        sync: false
+      - key: EMAIL_FROM
+        sync: false
+
+  # ── Frontend (Next.js) ───────────────────────────────────────────────────────
+  - type: web
+    name: modest-muse-style
+    runtime: node
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_API_URL
+        sync: false          # set to https://modest-muse-api.onrender.com/api/v1 after deploy
