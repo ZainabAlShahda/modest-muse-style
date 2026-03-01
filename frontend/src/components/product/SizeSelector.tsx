@@ -16,10 +16,6 @@ export default function SizeSelector({ sizes, selectedSize, onSelect, variants, 
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-3">
-        <span className="text-sm font-medium text-charcoal">Size</span>
-        <button className="text-xs text-sand underline">Size Guide</button>
-      </div>
       <div className="flex flex-wrap gap-2">
         {sizes.map((size) => {
           const oos = isOutOfStock(size);
