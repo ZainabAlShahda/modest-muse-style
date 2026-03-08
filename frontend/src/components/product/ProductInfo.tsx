@@ -151,7 +151,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
             <div>
               <p className="text-sm font-medium text-charcoal mb-1">Care:</p>
               <ul className="text-sm text-charcoal-muted space-y-0.5">
-                {product.careInstructions.map((i) => <li key={i}>• {i}</li>)}
+                {product.careInstructions?.map((i) => <li key={i}>• {i}</li>)}
               </ul>
             </div>
           )}
