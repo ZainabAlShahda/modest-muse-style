@@ -147,7 +147,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
       {product.fabric && (
         <div className="border-t border-sand-100 pt-5 space-y-2">
           <p className="text-sm"><span className="font-medium text-charcoal">Fabric: </span><span className="text-charcoal-muted">{product.fabric}</span></p>
-          {product.careInstructions?.length > 0 && (
+          {(product.careInstructions?.length ?? 0) > 0 && (
             <div>
               <p className="text-sm font-medium text-charcoal mb-1">Care:</p>
               <ul className="text-sm text-charcoal-muted space-y-0.5">
